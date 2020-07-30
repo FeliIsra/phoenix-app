@@ -1,4 +1,4 @@
-# This file is responsible for configuring your application
+## This file is responsible for configuring your application
 # and its dependencies with the aid of the Mix.Config module.
 #
 # This configuration file is loaded before any dependency and
@@ -13,10 +13,10 @@ config :app,
 # Configures the endpoint
 config :app, AppWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "3p2Kvk8gEY75EM04b13k0CotuEA3pqfnQUFA/kQZHf7UmMI9On7JWrSTcLq3Vyxk",
-  render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: App.PubSub,
-  live_view: [signing_salt: "cU7F7s1g"]
+  live_view: [signing_salt: "gr6j1ZhSIGlOy+KqJOfRH3C2v4x8aZTs"],
+  secret_key_base: "hELSnfRZGJKCJhM0s7SGZXOIFyAHhsJZTgqbVVXgJyY48Jc6oiy9TQIWCvHXCZen",
+  render_errors: [view: AppWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: App.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

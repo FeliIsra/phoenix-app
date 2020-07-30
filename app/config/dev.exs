@@ -1,14 +1,5 @@
 use Mix.Config
 
-# Configure your database
-config :app, App.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "app_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -60,8 +51,9 @@ config :app, AppWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/app_web/(live|views)/.*(ex)$",
-      ~r"lib/app_web/templates/.*(eex)$"
+      ~r"lib/app_web/{live,views}/.*(ex)$",
+      ~r"lib/app_web/templates/.*(eex)$",
+      ~r{lib/my_app_web/live/.*(ex)$}
     ]
   ]
 
@@ -74,3 +66,11 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Configure your database
+config :app, App.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "app_dev",
+  hostname: "localhost",
+  pool_size: 10
