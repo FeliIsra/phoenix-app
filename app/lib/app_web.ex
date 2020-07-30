@@ -24,6 +24,7 @@ defmodule AppWeb do
       import Plug.Conn
       import AppWeb.Gettext
       alias AppWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -39,6 +40,8 @@ defmodule AppWeb do
 
       # Include shared imports and aliases for views
       unquote(view_helpers())
+
+      import Phoenix.LiveView.Helpers
     end
   end
 
@@ -63,15 +66,17 @@ defmodule AppWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      # Import LiveView helpers (live_render, live_component, live_patch, etc)
+      import Phoenix.LiveView.Helpers
+
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import AppWeb.ErrorHelpers
-      import AppWeb.Gettext
-      alias AppWeb.Router.Helpers, as: Routes
+      import MyAppWeb.ErrorHelpers
+      import MyAppWeb.Gettext
+      alias MyAppWeb.Router.Helpers, as: Routes
     end
   end
-
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
